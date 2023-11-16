@@ -7,11 +7,9 @@ import { Filter } from './Filter/Filter';
 const LSKEY = 'contacts';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(() => {
-    const contactsLs = localStorage.getItem(LSKEY);
-    const parsed = JSON.parse(contactsLs) ?? [];
-    return parsed;
-  });
+  const [contacts, setContacts] = useState(
+    () => JSON.parse(localStorage.getItem(LSKEY)) ?? []
+  );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
